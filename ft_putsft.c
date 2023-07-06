@@ -6,11 +6,11 @@
 /*   By: salvalva <salvalva@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:04:25 by salvalva          #+#    #+#             */
-/*   Updated: 2023/06/20 17:39:34 by salvalva         ###   ########.fr       */
+/*   Updated: 2023/07/06 18:30:34 by salvalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include "ft_printf.h"
 
 int	ft_putchar(int c)
 {
@@ -22,12 +22,13 @@ int	ft_putstr(char *str)
 {
 	int	i;
 
+	i = 0;
 	if (str == NULL)
 	{
-		write(1,"(null)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
-	while (str[i] = '\0')
+	while (str[i])
 	{
 		write(1, &str[i], 1);
 		i++;
@@ -47,7 +48,7 @@ int	ft_putptr(unsigned long ptr)
 
 int	ft_puthex(unsigned long long num, int capital)
 {
-	int	i;
+	unsigned long long	i;
 
 	i = 0;
 	if (num >= 16)

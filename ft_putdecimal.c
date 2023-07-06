@@ -6,11 +6,11 @@
 /*   By: salvalva <salvalva@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 16:27:40 by salvalva          #+#    #+#             */
-/*   Updated: 2023/06/21 16:33:47 by salvalva         ###   ########.fr       */
+/*   Updated: 2023/07/06 18:42:01 by salvalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include "ft_printf.h"
 
 static int	num_count(long x)
 {
@@ -38,8 +38,8 @@ char	*ft_itoa(int n)
 	str = (char *) malloc (sizeof (char) * (len + 1));
 	if (!str)
 		return (0);
-	str[len--] = '\0';
-	if (n1 == 0)
+		str[len--] = '\0';
+	if (n == 0)
 		str[0] = '0';
 	if (n1 < 0)
 	{
@@ -77,8 +77,8 @@ char	*ft_itoa_unsigned(unsigned int n)
 	str = (char *) malloc (sizeof (char) * (len + 1));
 	if (!str)
 		return (0);
-	str[len--] = '\0';
-	if (n1 == 0)
+		str[len--] = '\0';
+	if (n == 0)
 		str[0] = '0';
 	if (n1 < 0)
 	{
@@ -101,6 +101,6 @@ int	ft_putnbr_unsigned(unsigned int nb)
 
 	str = ft_itoa_unsigned(nb);
 	num = ft_putstr(str);
-	free (num);
+	free (str);
 	return (num);
 }

@@ -6,11 +6,11 @@
 /*   By: salvalva <salvalva@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 17:02:25 by salvalva          #+#    #+#             */
-/*   Updated: 2023/06/21 17:23:09 by salvalva         ###   ########.fr       */
+/*   Updated: 2023/07/06 18:27:47 by salvalva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include "ft_printf.h"
 
 int	ft_checktype(va_list args, const char str, int cont2)
 {
@@ -30,7 +30,7 @@ int	ft_checktype(va_list args, const char str, int cont2)
 		cont2 += ft_puthex(va_arg(args, unsigned int), 1);
 	else if (str == '%')
 		cont2 += ft_putchar('%');
-	return (cont2);	
+	return (cont2);
 }
 
 int	ft_printf(char const *str, ...)
@@ -44,9 +44,8 @@ int	ft_printf(char const *str, ...)
 	cont1 = 0;
 	cont2 = 0;
 	i = 0;
-    
-	while(str[i])
-    {
+	while (str[i])
+	{
 		if (str[i] == '%')
 		{
 			cont1 += ft_checktype(args, str[i + 1], cont2);
@@ -55,7 +54,7 @@ int	ft_printf(char const *str, ...)
 		else
 			cont1 += ft_putchar(str[i]);
 		i++;
-    }
+	}
 	va_end(args);
-	return(cont1);
+	return (cont1);
 }
